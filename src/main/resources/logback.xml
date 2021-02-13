@@ -1,0 +1,20 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="TIMESTREAM" class="io.wiklandia.logger.AwsTimestreamAppender">
+        <awsSettings>
+            <region>us-east-1</region>
+        </awsSettings>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="TIMESTREAM"/>
+    </root>
+
+</configuration>
